@@ -10,5 +10,3 @@ def cipher(text, shift)
     end
     puts result
 end
-
-cipher("I'm know something about any things ThaT ###", 6)
