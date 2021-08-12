@@ -3,13 +3,20 @@ def stock_picker(prices)
     
     buy_days = prices.take(prices.length-1)
     sell_days = prices.drop(1)
-    pricediff = {}
+    pricediff = []
     index = 0
     for day in buy_days
-        sell_days = prices.drop(i+1)
-        pricediff[index] = sell_days - day 
+        sell_days = prices.drop(index+1)
+        pricediff[index] = (sell_days.map {|item| item - day}).max
+        index = index + 1
+
     end
-    
+    day_to_buy = pricediff.index(pricediff.max)
+    days_to_sell = prices.drop(day_to_buy)
+    puts days_to_sell
+    day_to_sell = days_to_sell.index(days_to_sell.max) + day_to_buy
+    [day_to_buy, day_to_sell]
 end
 
-stock_picker([6, 7, 2, 1, 3, 4, 8, 10, 7, 8]
+res = stock_picker([17,3,6,9,15,8,6,1,10])
+puts res
