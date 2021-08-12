@@ -3,8 +3,11 @@ def stock_picker(prices)
     
     buy_days = prices.take(prices.length-1)
     sell_days = prices.drop(1)
-    for day in days
-        
+    pricediff = {}
+    index = 0
+    for day in buy_days
+        sell_days = prices.drop(i+1)
+        pricediff[index] = sell_days - day 
     end
     
 end
