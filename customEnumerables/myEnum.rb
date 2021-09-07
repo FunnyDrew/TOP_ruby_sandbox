@@ -60,5 +60,12 @@ module Enumerable
         end
         acc
     end
+
+    def my_map2(proc)
+        res = []
+        self.my_each{|item| res<<(proc.call item )}
+        res
+    end
+
 end
 

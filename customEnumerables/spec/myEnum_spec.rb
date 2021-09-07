@@ -54,6 +54,11 @@ describe "enumerable" do
     it "my_inject with multiply" do
         expect([2,4,5].my_inject(1){|item, acc| acc *= item}).to eq([2,4,5].inject{|item, acc| acc *= item})
     end
+
+    it "my_map with proc test" do
+        proc = Proc.new {|item| "here is #{item}"}
+        expect(coll.my_map2 proc).to eq(coll.map{|item| "here is #{item}"})
+    end
     
 
 end
